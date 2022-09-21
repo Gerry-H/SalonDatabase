@@ -1,0 +1,13 @@
+                                            Table "public.appointments"
+     Column     |         Type          | Collation | Nullable |                      Default                      
+----------------+-----------------------+-----------+----------+---------------------------------------------------
+ appointment_id | integer               |           | not null | nextval('appointments_customer_id_seq'::regclass)
+ customer_id    | integer               |           |          | 
+ service_id     | integer               |           |          | 
+ time           | character varying(20) |           |          | 
+Indexes:
+    "appointments_pkey" PRIMARY KEY, btree (appointment_id)
+Foreign-key constraints:
+    "appointments_customer_id_fkey" FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    "appointments_service_id_fkey" FOREIGN KEY (service_id) REFERENCES services(service_id)
+
